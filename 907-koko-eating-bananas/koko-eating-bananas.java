@@ -1,5 +1,5 @@
 class Solution {
-    public int minEatingSpeed(int[] piles, int h) 
+    public int minEatingSpeed(int[] piles, int h)    //TC: O(log (max element)) * O(n) 
     {
         int n=piles.length;
         int maxPile=piles[0];
@@ -16,10 +16,10 @@ class Solution {
             int mid=(l+r)/2;
             long hours=calculateHours(piles, mid);
 
-            if(hours > h)
+            if(hours > h)    //Koko is taking more hours than allowed. So it is slow. We need to increase the speed.
                 l=mid+1;
 
-            else
+            else    //Eating faster. SO to let it eat slowly. We have to reduce the speed.
             {
                 ans=mid;
                 r=mid-1;
