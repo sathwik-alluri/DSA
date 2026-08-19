@@ -1,5 +1,5 @@
 class Solution {
-    public int smallestDivisor(int[] nums, int threshold) 
+    public int smallestDivisor(int[] nums, int threshold)  //TC: O(log(max(arr[])) * N
     {
         int n=nums.length;
         int max=nums[0];
