@@ -35,5 +35,12 @@ class Solution {
         int missingAtR = arr[r]-(r+1); 
         int more = k-missingAtR;
         return arr[r]+more;
+
+
+        /* Since the array is sorted, we use Binary Search to find the position around which the k-th missing number lies.
+
+For each middle index, we determine how many positive numbers are missing before that element. If the number of missing elements is less than k, we move to the right; otherwise, we search the left side.
+
+After the binary search, high points to the last position where fewer than k numbers are missing, which allows us to directly determine the k-th missing positive number. */
     }
 }
