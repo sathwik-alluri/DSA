@@ -1,5 +1,5 @@
 class Solution {
-    public int minDays(int[] bloomDay, int m, int k) 
+    public int minDays(int[] bloomDay, int m, int k) //TC: O(max(arr) - min(arr) + 1) * O(n)
     {
         int n=bloomDay.length;
         if(m*k > n)
