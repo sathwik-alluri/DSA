@@ -25,6 +25,15 @@ class Solution {
             else
                 r=mid-1; 
         }
-        return r+1+k;    //return l+k;
+        //return r+1+k;    //return l+k;
+
+        //Now the answer is Actual value to be present at arr[high]+more
+        if(r==-1)
+        {
+            return k;
+        }
+        int missingAtR = arr[r]-(r+1); 
+        int more = k-missingAtR;
+        return arr[r]+more;
     }
 }
