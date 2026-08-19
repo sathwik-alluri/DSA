@@ -14,7 +14,7 @@ class Solution {
         {
             int mid=(l+r)/2;
 
-            long sum = fun(nums, mid);
+            int sum = fun(nums, mid);
             if(sum <= threshold)
             {
                 ans=mid;
@@ -27,13 +27,13 @@ class Solution {
         }
         return ans;
     }
-    public long fun(int[] nums, int div) 
+    public int fun(int[] nums, int div) 
     {
         int n=nums.length;
-        long sum=0;
+        int sum=0;
         for(int i=0;i<n;i++)
         {
-            sum += (long)Math.ceil((double) nums[i]/ div);
+            sum += Math.ceil((double) nums[i]/ div);
         }
         return sum;
     }
