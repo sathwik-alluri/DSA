@@ -19,9 +19,9 @@ class Solution {
         while(l<=r)
         {
             long mid=(l+r)/2;
-            long subarrays = helper(arr, mid, k);
+            long countSubarrays = helper(arr, mid, k);
             
-            if(subarrays <= k)
+            if(countSubarrays <= k)
             {
                 ans=mid;
                 r=mid-1;
@@ -31,14 +31,14 @@ class Solution {
         }
         return (int)ans; 
     }
-    public long helper(int[] arr, long pages, int k) 
+    public long helper(int[] arr, long subArraySum, int k) 
     {
         int n=arr.length;
         int subarrays=1;
         long sum=0;
         for(int i=0;i<n;i++)
         {
-            if(sum + arr[i] > pages)
+            if(sum + arr[i] > subArraySum)
             {
                 sum=arr[i];
                 subarrays+=1;
