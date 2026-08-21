@@ -1,7 +1,7 @@
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) 
     {
-        int n1=nums1.length;
+        int n1=nums1.length;  //TC: O(min(log n, log m))
         int n2=nums2.length;
         if(n1 > n2)
         {
