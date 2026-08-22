@@ -1,7 +1,7 @@
 class Solution {
     public int[] findPeakGrid(int[][] mat) 
     {
-        int n=mat.length;
+        int n=mat.length;     //TC: O(logm * n)
         int m=mat[0].length;
         int ans[]={0,0};
 
