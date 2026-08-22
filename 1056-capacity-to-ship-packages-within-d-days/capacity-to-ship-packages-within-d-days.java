@@ -1,5 +1,5 @@
 class Solution {
-    public int shipWithinDays(int[] weights, int days) 
+    public int shipWithinDays(int[] weights, int days)   //TC: O(N * log(Search space))
     {
         int n=weights.length;
         int sum=0;
@@ -10,7 +10,7 @@ class Solution {
             sum+=weights[i];
         }
 
-        //[0, sum]
+        //[max, sum]
         int l=max;
         int r=sum;
         int ans=-1;
