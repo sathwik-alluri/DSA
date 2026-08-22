@@ -4,24 +4,18 @@ class Solution {
         int n=matrix.length;
         int m=matrix[0].length;
 
-        for(int i=0;i<n;i++)     //TC: O(n) + O(logm)
+        int l=0;
+        int r=m-1;
+        while(l<n && r>=0)
         {
-            if(matrix[i][0] <= target && target <= matrix[i][m-1])
-            {
-                int l=0;
-                int r=m-1;
-                while(l<=r)
-                {
-                    int mid=(l+r)/2;
-                    if(matrix[i][mid] == target)
-                        return true;
+            if(matrix[l][r] == target)
+                return true;
+            
+            if(matrix[l][r] < target)  //If current value < target, We need a larger value.we will move down
+                l=l+1;
 
-                    if(matrix[i][mid] < target)
-                        l=mid+1;
-                    else
-                        r=mid-1;
-                }
-            }
+            else         //If curr value > target. It will be on left side. We will stay at same row. and we will reduce column value  
+                r=r-1;
         }
         return false;
     }
