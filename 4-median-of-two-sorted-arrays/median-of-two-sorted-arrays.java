@@ -10,6 +10,7 @@ class Solution {
 
         int l=0;
         int r=n1;
+    
         int left=(n1+n2+1)/2;
         while(l<=r)
         {
