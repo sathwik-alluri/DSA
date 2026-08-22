@@ -4,7 +4,7 @@ class Solution {
         int n=matrix.length;
         int m=matrix[0].length;
 
-    //     for(int i=0;i<n;i++)
+    //     for(int i=0;i<n;i++)     //TC: O(n) + O(logm)
     //     {
     //         if(matrix[i][0] <= target && target <= matrix[i][m-1])
     //         {
@@ -26,7 +26,7 @@ class Solution {
     //     return false;
 
 
-        int l=0;
+        int l=0;            //TC: O(log nm)
         int r=n*m-1;
         while(l<=r)
         {
