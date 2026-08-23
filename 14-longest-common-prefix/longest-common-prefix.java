@@ -1,41 +1,61 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) 
     {
+        // int n=strs.length;       //TC: O(n × L²)
+        // if(n==1)
+        //     return strs[0];
+
+        // String fWord=strs[0];
+
+        // StringBuffer ans=new StringBuffer();
+        // StringBuffer prefix=new StringBuffer();
+
+        // for(int c=0;c<fWord.length();c++)
+        // {
+        //     prefix.append(fWord.charAt(c));
+
+        //     int i=0;
+        //     boolean exists=true;
+        //     for(i=0; i<n; i++)
+        //     {
+        //         if(strs[i].startsWith(prefix.toString()))
+        //             continue;
+        //         else
+        //         {
+        //             exists=false;
+        //             break;
+        //         }
+        //     }
+        //     if(exists == true)
+        //     {
+        //         ans=new StringBuffer(prefix);     //We cant directly assign ans=prefix. VBecuase as Jave uses String pool concept, both will point to same object.So we might get incorrcet answers.
+        //     } 
+        //     else    //if(Notexists == true)
+        //     {
+        //         break;
+        //     }
+        // }
+        // return ans.toString();
+
+        Arrays.sort(strs);
         int n=strs.length;
-        if(n==1)
-            return strs[0];
+        String small=strs[0];
+        String large=strs[n-1];
 
-        String fWord=strs[0];
-        char arr[]=fWord.toCharArray();
-        int an=arr.length;
-
-        StringBuffer ans=new StringBuffer();
-        StringBuffer prefix=new StringBuffer();
-        for(int c=0;c<an;c++)
+        int i=0;
+        int j=0;
+        int n1=small.length();
+        int n2=large.length();
+        while(i<n1 && j<n2)
         {
-            prefix.append(arr[c]);
-
-            int i=0;
-            boolean exists=true;
-            for(i=0; i<n; i++)
+            if(small.charAt(i) == large.charAt(j))
             {
-                if(strs[i].startsWith(prefix.toString()))
-                    continue;
-                else
-                {
-                    exists=false;
-                    break;
-                }
+                i++;
+                j++;
             }
-            if(exists == true)
-            {
-                ans=new StringBuffer(prefix);
-            } 
-            else    //if(Notexists == true)
-            {
+            else
                 break;
-            }
         }
-        return ans.toString();
+        return small.substring(0, i);
     }
 }
