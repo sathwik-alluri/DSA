@@ -31,16 +31,25 @@ class Solution {
         // return true;
 
 
+        //Bruteforce
+        // if(s.length() != goal.length())     //TC: O(n * n)
+        //     return false;
+        // int n=s.length();
+        // for(int i=0;i<n;i++)
+        // {
+        //     String rotated = s.substring(i, n) + s.substring(0,i);
+
+        //     if(rotated.equals(goal))
+        //         return true;
+        // }
+        // return false;
+
+
+
+        //Optimal     TC: O(n)
         if(s.length() != goal.length())
             return false;
-        int n=s.length();
-        for(int i=0;i<n;i++)
-        {
-            String rotated = s.substring(i, n) + s.substring(0,i);
-
-            if(rotated.equals(goal))
-                return true;
-        }
-        return false;
+        String combined = s+s;
+        return combined.contains(goal);
     }
 }
