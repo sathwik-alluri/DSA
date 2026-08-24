@@ -1,39 +1,88 @@
+// class Pair
+// {
+//     char ch;
+//     int freq;
+//     Pair(char c, int f)
+//     {
+//         ch=c;
+//         freq=f;
+//     }
+// }
+
 class Pair
 {
-    char ch;
     int freq;
-    Pair(char c, int f)
+    char ch;
+    Pair(int f, char c)
     {
-        ch=c;
         freq=f;
+        ch=c;
     }
 }
+
 class Solution {
     public String frequencySort(String s) 
     {
-        HashMap<Character, Integer> h=new HashMap<>();
-        int n=s.length();
-        for(int i=0;i<n;i++)
+        // HashMap<Character, Integer> h=new HashMap<>();
+        // int n=s.length();
+        // for(int i=0;i<n;i++)
+        // {
+        //     h.put(s.charAt(i), h.getOrDefault(s.charAt(i), 0)+1);
+        // }
+
+        // PriorityQueue<Pair> pq=new PriorityQueue<>((a,b) ->
+        // Integer.compare(b.freq, a.freq));
+
+        // for(Map.Entry<Character, Integer> val: h.entrySet())
+        // {
+        //     pq.add(new Pair(val.getKey(), val.getValue()));
+        // }
+        
+        // StringBuffer ans=new StringBuffer();
+        // while(pq.isEmpty() == false)
+        // {
+        //     Pair top=pq.poll();
+        //     char c=top.ch;
+        //     int f=top.freq;
+
+        //     for(int i = 0; i < f; i++)
+        //     {
+        //         ans.append(c);
+        //     }
+        // }
+        // return ans.toString();
+
+
+
+        Pair arr[]=new Pair[256];
+        for(int i=0;i<256;i++)
         {
-            h.put(s.charAt(i), h.getOrDefault(s.charAt(i), 0)+1);
+             arr[i] = new Pair(0, (char)(i));
         }
 
-        PriorityQueue<Pair> pq=new PriorityQueue<>((a,b) ->
-        Integer.compare(b.freq, a.freq));
-
-        for(Map.Entry<Character, Integer> val: h.entrySet())
+        for(int i=0;i<s.length();i++)
         {
-            pq.add(new Pair(val.getKey(), val.getValue()));
+            Pair p=arr[s.charAt(i)];
+            int f=p.freq;
+            char c=p.ch;
+            arr[s.charAt(i)] = new Pair(f+1, s.charAt(i));
         }
+
+        Arrays.sort(arr, (a,b) ->
+        {
+            if(a.freq == b.freq)
+                return Character.compare(a.ch, b.ch);      //Characters in ascending order
+            return Integer.compare(b.freq, a.freq);        //Decending order
+        });        
         
         StringBuffer ans=new StringBuffer();
-        while(pq.isEmpty() == false)
+        for(int i=0;i<256;i++)
         {
-            Pair top=pq.poll();
-            char c=top.ch;
-            int f=top.freq;
+            Pair p=arr[i];
+            int f=p.freq;
+            char c=p.ch;
 
-            for(int i = 0; i < f; i++)
+            for(int j=0; j<f; j++)
             {
                 ans.append(c);
             }
