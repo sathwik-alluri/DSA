@@ -82,6 +82,9 @@ class Solution {
             int f=p.freq;
             char c=p.ch;
 
+            if(f==0)
+                break;
+
             for(int j=0; j<f; j++)
             {
                 ans.append(c);
