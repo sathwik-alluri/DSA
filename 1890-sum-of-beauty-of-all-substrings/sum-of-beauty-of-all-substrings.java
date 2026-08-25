@@ -1,7 +1,7 @@
 class Solution {
     public int beautySum(String s) 
     {
-        int n=s.length();
+        int n=s.length();      //O(n * n) * O(26) - To find min and max the loop will run for at most the length of 26.
         int beautySum=0;
         for(int i=0;i<n;i++)
         {
