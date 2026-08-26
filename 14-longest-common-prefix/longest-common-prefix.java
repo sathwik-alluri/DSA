@@ -28,16 +28,17 @@ class Solution {
         //     }
         //     if(exists == true)
         //     {
-        //         ans=new StringBuffer(prefix);     //We cant directly assign ans=prefix. VBecuase as Jave uses String pool concept, both will point to same object.So we might get incorrcet answers.
+        //         ans=new StringBuffer(prefix);     //We cant directly assign ans=prefix. Becuase as Jave uses String pool concept, both will point to same object.So we might get incorrcet answers.
         //     } 
-        //     else    //if(Notexists == true)
+        //     else    //if(exists == false)
         //     {
         //         break;
         //     }
         // }
         // return ans.toString();
 
-        Arrays.sort(strs);
+
+        Arrays.sort(strs);     //TC: O(nlogn * Length of each string (if we consider that also as a cost)) + O(Prefix Length to be compared)
         int n=strs.length;
         String small=strs[0];
         String large=strs[n-1];
