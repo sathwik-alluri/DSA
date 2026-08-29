@@ -38,7 +38,7 @@ class Solution {
 
 
         int n=s.length();
-        int m=t.length();
+        int m=t.length();                     //TC: O(m) + O(2n)   //SC: O(256)
         int minLen=Integer.MAX_VALUE;
         int startInd=0;
         int l=0;
@@ -66,7 +66,7 @@ class Solution {
                         minLen = r-l+1;
                     }
                 }
-                
+
                 hm.put(s.charAt(l), hm.getOrDefault(s.charAt(l), 0) + 1);
 
                 if(hm.containsKey(s.charAt(l)) && hm.get(s.charAt(l)) > 0)
