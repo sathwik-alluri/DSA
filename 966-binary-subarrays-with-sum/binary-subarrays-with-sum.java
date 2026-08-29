@@ -1,5 +1,5 @@
 class Solution {
-    public int numSubarraysWithSum(int[] nums, int goal) 
+    public int numSubarraysWithSum(int[] nums, int goal)    //TC: O(2 * 2n)
     {
         return SubarraysWithSumLessThanOrEqualToSumK(nums, goal) - SubarraysWithSumLessThanOrEqualToSumK(nums, goal-1);
     }
