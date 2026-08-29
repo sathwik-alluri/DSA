@@ -48,7 +48,7 @@ class Solution {
             {
                 hm[s.charAt(l) - 'A']--;
                 l++;
-                maxfreq=0;
+                //maxfreq=0;
             }
 
             if((r-l+1)-maxfreq <= k)
