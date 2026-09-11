@@ -50,7 +50,7 @@ class Solution {
         // return water;
 
         
-        int n=height.length;
+        int n=height.length;     //TC: O(n) and SC: O(1)
         int l=0;
         int r=n-1;
         int leftmax=0;
@@ -58,13 +58,14 @@ class Solution {
         int water=0;
         while(l<=r)
         {
-            if(height[l] <= height[r])   //Left is smaller. SO this might be an right wall
+            if(height[l] <= height[r])   //Left is smaller. SO this might be an right wall.
+                                    //So we will process left side.
             {
-                if(leftmax <= height[l])
+                if(leftmax <= height[l])   //It it is the highest wall. We cant store water on this wall.
                 {
                     leftmax=height[l];
                 }
-                else
+                else             //The height difference is the water we can share
                 {
                     int heightDiff=leftmax - height[l];
                     water+=heightDiff;
