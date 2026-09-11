@@ -24,27 +24,66 @@ class Solution {
         // return water;
 
 
-        int n = height.length;
-        Stack<Integer> st=new Stack<>();
+
+        // int n = height.length;
+        // Stack<Integer> st=new Stack<>();
+        // int water=0;
+        // for(int i=0;i<n;i++)
+        // {
+        //     while(!st.isEmpty() && height[st.peek()] < height[i])
+        //     {
+        //         int current=height[st.pop()];
+        //         if(!st.isEmpty())
+        //         {
+        //             int left=st.peek();
+        //             int right=i;
+
+        //             int width=(right-left)-1;
+
+        //             int w=Math.min(height[left], height[right])-current;
+
+        //             water+=width*w;
+        //         }
+        //     }
+        //     st.push(i);
+        // }
+        // return water;
+
+        
+        int n=height.length;
+        int l=0;
+        int r=n-1;
+        int leftmax=0;
+        int rightmax=0;
         int water=0;
-        for(int i=0;i<n;i++)
+        while(l<=r)
         {
-            while(!st.isEmpty() && height[st.peek()] < height[i])
+            if(height[l] <= height[r])   //Left is smaller. SO this might be an right wall
             {
-                int current=height[st.pop()];
-                if(!st.isEmpty())
+                if(leftmax <= height[l])
                 {
-                    int left=st.peek();
-                    int right=i;
-
-                    int width=(right-left)-1;
-
-                    int w=Math.min(height[left], height[right])-current;
-
-                    water+=width*w;
+                    leftmax=height[l];
                 }
+                else
+                {
+                    int heightDiff=leftmax - height[l];
+                    water+=heightDiff;
+                }
+                l++;
             }
-            st.push(i);
+            else
+            {
+                if(rightmax <= height[r])
+                {
+                    rightmax=height[r];
+                }
+                else
+                {
+                    int heightDiff=rightmax - height[r];
+                    water+=heightDiff;
+                }
+                r--;
+            }           
         }
         return water;
     }
