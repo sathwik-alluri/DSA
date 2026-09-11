@@ -58,8 +58,7 @@ class Solution {
         int water=0;
         while(l<=r)
         {
-            if(height[l] <= height[r])   //Left is smaller. SO this might be an right wall.
-                                    //So we will process left side.
+            if(height[l] <= height[r])   //Left is smaller → process left because the right side is guaranteed to have a wall at least as high as the current left position.
             {
                 if(leftmax <= height[l])   //It it is the highest wall. We cant store water on this wall.
                 {
