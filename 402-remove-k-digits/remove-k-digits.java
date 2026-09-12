@@ -1,11 +1,11 @@
 class Solution {
     public String removeKdigits(String num, int k) 
     {
-        int n=num.length();
+        int n=num.length();     //TC:O(3n) + O(k)
         Stack<Character> st=new Stack<>();
         if(n == k)
             return "0";
-        for(int i=0;i<n;i++)
+        for(int i=0;i<n;i++)      //--O(n)
         {
             while(k>0 && st.isEmpty()==false && st.peek()-'0'>num.charAt(i)-'0')
             {
@@ -14,7 +14,8 @@ class Solution {
             }
             st.push(num.charAt(i));
         }
-        while(k>0)     //We many encounter case, we are not able to pop any elents. Then we need to remove last k numbers from ans.
+        while(k>0)         //--O(k) at worst case
+        //We many encounter case, we are not able to pop any elents. Then we need to remove last k numbers from ans.
         //Ex: 123456
         {
             k--;
@@ -22,7 +23,7 @@ class Solution {
         }
 
         String ans="";
-        while(st.isEmpty() == false)
+        while(st.isEmpty() == false)    //--O(n)
         {
             ans += st.pop();
         }
@@ -31,7 +32,7 @@ class Solution {
         
         //ans=ans.replaceFirst("^0+", "");
         int i = 0;
-        while(i < ans.length() && ans.charAt(i) == '0')
+        while(i < ans.length() && ans.charAt(i) == '0') 
         {
             i++;
         }
