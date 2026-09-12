@@ -1,7 +1,7 @@
 class Solution {
     public String removeKdigits(String num, int k) 
     {
-        int n=num.length();     //TC:O(3n) + O(k)
+        int n=num.length();     //TC:O(3n) + O(k) and SC: O(n)+O(n)
         Stack<Character> st=new Stack<>();
         if(n == k)
             return "0";
@@ -14,6 +14,7 @@ class Solution {
             }
             st.push(num.charAt(i));
         }
+
         while(k>0)         //--O(k) at worst case
         //We many encounter case, we are not able to pop any elents. Then we need to remove last k numbers from ans.
         //Ex: 123456
