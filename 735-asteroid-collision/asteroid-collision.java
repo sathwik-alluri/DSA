@@ -39,7 +39,7 @@ class Solution {
         // return ans;
 
 
-        int n=asteroids.length;
+        int n=asteroids.length;        //TC:O(2n) and SC:O(n)
         Stack<Integer> st=new Stack<>();
         for(int i=0;i<n;i++)
         {
