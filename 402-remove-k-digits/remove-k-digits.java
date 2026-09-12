@@ -28,7 +28,14 @@ class Solution {
         }
 
         ans=new StringBuilder(ans).reverse().toString();
-        ans=ans.replaceFirst("^0+", "");
+        
+        //ans=ans.replaceFirst("^0+", "");
+        int i = 0;
+        while(i < ans.length() && ans.charAt(i) == '0')
+        {
+            i++;
+        }
+        ans = ans.substring(i);
 
         if(ans == "")
             return "0";
