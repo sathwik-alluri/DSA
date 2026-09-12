@@ -1,7 +1,7 @@
 class Solution {
     public int sumSubarrayMins(int[] arr) 
     {
-        long sum=0;
+        long sum=0;      //TC: O(2n) + O(2n) + O(n) == O(5n)   //SC:O(5n)
         int n=arr.length;
         long mod=1000000007L;
         int nse[]=nextSmallerElement(arr);
@@ -16,6 +16,11 @@ class Solution {
         }
         return (int)sum;
     }
+
+
+     //We are calculating PSEE because to handle case like [2, 2] where we will consider
+     //the subarray [2, 2] two times.
+     //Hence we need to exclude that either in NSE or PSE 
 
     public int[] previousSmallerorEqualElement(int[] arr) 
     {
