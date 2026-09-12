@@ -50,12 +50,14 @@ class Solution {
             else
             {
                 while(!st.isEmpty() && st.peek()>0 && st.peek()<Math.abs(curr))
+                    // Here the samaller one will explode amond pos and Neg ones
                     st.pop();
                 
                 if(!st.isEmpty() && st.peek()>0 && st.peek() == Math.abs(curr))
+                    //If both are same size, then both will explode
                     st.pop();
 
-                else if(st.isEmpty() || st.peek() < 0)
+                else if(st.isEmpty() || st.peek() < 0)     //There may be a change the neg aestrod may explode all positive aestroids. Then we need to add that to the Stack. Also when the peek element is an neg aesroud.
                     st.push(curr);
             }      
         }
