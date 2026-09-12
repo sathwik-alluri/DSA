@@ -5,7 +5,7 @@ class Solution {
         int n=arr.length;
         long mod=1000000007L;
         int nse[]=nextSmallerElement(arr);
-        int pse[]=previousSmallerElement(arr);
+        int pse[]=previousSmallerorEqualElement(arr);
 
         for(int i=0;i<n;i++)
         {
@@ -17,7 +17,7 @@ class Solution {
         return (int)sum;
     }
 
-    public int[] previousSmallerElement(int[] arr) 
+    public int[] previousSmallerorEqualElement(int[] arr) 
     {
         int n=arr.length;
         int[] pse=new int[n];
@@ -26,7 +26,7 @@ class Solution {
 
         for(int i=0;i<n;i++)
         {
-            while(st.isEmpty()==false && arr[st.peek()] >= arr[i])
+            while(st.isEmpty()==false && arr[st.peek()] > arr[i])
             {
                 st.pop();
             }
@@ -46,7 +46,7 @@ class Solution {
 
         for(int i=n-1;i>=0;i--)
         {
-            while(st.isEmpty()==false && arr[st.peek()] > arr[i])
+            while(st.isEmpty()==false && arr[st.peek()] >= arr[i])
             {
                 st.pop();
             }
