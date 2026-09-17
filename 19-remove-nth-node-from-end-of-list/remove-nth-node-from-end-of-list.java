@@ -21,7 +21,7 @@ class Solution {
             fast=fast.next;
         }
 
-        // If fast becomes null, n is equal to length of list. So remove the head.
+        // If fast becomes null, n is equal to length of list. So we need to remove the first node.
         if(fast == null)
             return head.next;
 
