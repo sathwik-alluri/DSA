@@ -23,8 +23,8 @@ class Solution {
         int c=0;
         while(temp!=null)
         {
-            ListNode next = temp.next;  // Save next node
-            temp.next = null;           // Disconnect current node
+            // ListNode next = temp.next;  // Save next node
+            // temp.next = null;           // Disconnect current node
 
             c+=1;
             if(c%2 != 0)
@@ -53,9 +53,13 @@ class Solution {
                     even=temp;
                 }
             }
-            temp=next;
+            // temp=next;
+            temp=temp.next;
         }
         odd.next=evenHead;
+
+        even.next=null;
+
         return oddHead;
     }
 }
