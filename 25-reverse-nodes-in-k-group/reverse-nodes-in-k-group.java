@@ -13,7 +13,7 @@ class Solution {
     {
         if(k==1)
             return head;
-            
+         
         ListNode s=head;
         ListNode e=head;
         ListNode ep=null;
@@ -48,17 +48,32 @@ class Solution {
 
     public ListNode reverse(ListNode start, ListNode end) 
     {
-        ListNode stop = end.next;
         ListNode temp = start;
         ListNode prev = null;
-        while(temp != stop)
+        ListNode next=temp.next;
+        while(next != end.next)
         {
-            ListNode next = temp.next;
-
             temp.next = prev;
             prev = temp;
             temp = next;
+
+            next = temp.next;
         }
-        return prev;
+        temp.next=prev;
+        return temp;
+
+
+        // ListNode stop = end.next;
+        // ListNode temp = start;
+        // ListNode prev = null;
+        // while(temp != stop)
+        // {
+        //     ListNode next = temp.next;
+
+        //     temp.next = prev;
+        //     prev = temp;
+        //     temp = next;
+        // }
+        // return prev;
     }
 }
