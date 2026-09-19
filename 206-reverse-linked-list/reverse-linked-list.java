@@ -11,23 +11,6 @@
 class Solution {
     public ListNode reverseList(ListNode head) 
     {
-        // if(head==null || head.next==null)
-        //     return head;
-    
-        // ListNode prev = null;
-        // ListNode ne = head.next;
-
-        // while(ne != null)
-        // {
-        //     head.next = prev;
-        //     prev = head;
-        //     head = ne;
-        //     ne = ne.next;
-        // }
-        // head.next = prev;   // Reverse the last node
-        // return head;        // head is now the new head
-
-
         if(head==null || head.next==null)
             return head;
 
