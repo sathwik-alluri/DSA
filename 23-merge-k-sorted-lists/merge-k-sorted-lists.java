@@ -22,9 +22,12 @@ class Solution {
         */
 
 
-        //Optimal:
+        //Optimal:       //TC: O(n * merge TC)
         if (lists == null || lists.length == 0) return null;
         return helper(lists, 0);
+
+
+        //Question with child pointers: https://youtu.be/ykelywHJWLg?si=VPPeedhSfIIp5P1X
     }
 
     public ListNode helper(ListNode[] lists, int i) 
@@ -37,7 +40,7 @@ class Solution {
         return merge2Lists(lists[i], mergedRest);     // merge current list with the rest
     }
 
-    public ListNode merge2Lists(ListNode head1, ListNode head2)
+    public ListNode merge2Lists(ListNode head1, ListNode head2)    //TC: O(m + m) = O(2m)
     {
         ListNode dummy=new ListNode(-1);
         ListNode dum=dummy;
