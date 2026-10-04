@@ -42,17 +42,19 @@ class Solution {
         int maxLen=0;
         while(r<n)
         {
-            if(nums[r] == 0)
+            if(nums[r] == 0)   
             {
                 z++;
             }
+
+            //Here we ar not allowing ans to update until zeroes <= k even though we are moving the 'l' pointer only one position.
             if(z > k)
             {
                 if(nums[l] == 0)
                     z=z-1;
                 l++;
             }
-            if(z <= k)
+            else     //if(z <= k)
             {
                 maxLen=Math.max(maxLen, r-l+1);
             }
