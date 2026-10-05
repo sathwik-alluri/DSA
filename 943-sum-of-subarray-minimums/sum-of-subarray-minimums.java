@@ -11,6 +11,7 @@ class Solution {
         {
             long possibleStarts=i-pse[i];
             long possibleEnds=nse[i]-i;
+            
             long possibleSunarrays=possibleStarts*possibleEnds;
             sum= (sum + (possibleSunarrays * arr[i])%mod)%mod;
         }
@@ -61,4 +62,51 @@ class Solution {
         }
         return nse;
     }
+
+
+
+    /*
+        Take: arr = [3, 1, 2]
+
+Consider:
+i = 1
+arr[i] = 1
+
+We have:
+pse[1] = -1
+nse[1] = 3
+
+Therefore:
+possibleStarts = 1 - (-1) = 2
+possibleEnds   = 3 - 1 = 2
+
+So: possibleSubarrays = 2 × 2 = 4
+
+Which 4 subarrays are these?
+Starting positions:
+0 or 1
+
+Ending positions:
+1 or 2
+
+Combinations:
+start 0, end 1 → [3,1]
+start 0, end 2 → [3,1,2]
+
+start 1, end 1 → [1]
+start 1, end 2 → [1,2]
+
+Minimum of all four is 1.
+So 1 contributes:
+4 × 1 = 4
+
+6. That's exactly what this line does
+long possibleSubarrays = possibleStarts * possibleEnds;
+
+Then:
+possibleSubarrays * arr[i]
+
+means:
+arr[i] is the minimum in this many subarrays, so add arr[i] once for each of them.
+*/
 }
