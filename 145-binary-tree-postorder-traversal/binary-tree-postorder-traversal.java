@@ -69,6 +69,22 @@ class Solution {
         }
         return postOrder;
 
+/* 
+Intution:
+When we first reach node 1, we cannot immediately finish processing it. We need to:
+1. Record 1 in preorder.
+2. Explore its left subtree.
+3. Come back to 1 and record it in inorder.
+4. Explore its right subtree.
+5. Come back to 1 again and record it in postorder.
+
+The stack entry (1, state) remembers where we stopped.
+- (1, 1) means node 1 is waiting for its preorder step.
+- (1, 2) means preorder is complete; its inorder step is next.
+- (1, 3) means inorder is complete; its postorder step is next.
+*/
+
+
         // List<Integer> ans = new ArrayList<>();
 
         // if (root == null)
