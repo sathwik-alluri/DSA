@@ -20,25 +20,48 @@ class Solution {
     //    inOrder(root, ans); 
     //    return ans;
 
-        TreeNode node=root;
-        List<Integer> ans=new ArrayList<>();
-        Stack<TreeNode> st=new Stack<>();
-        while(true)
-        {
-            if(node != null)
-            {
-                st.push(node);
-                node=node.left;
-            }
-            else
-            {
-                if(st.isEmpty())
-                    break;
+        // TreeNode node=root;                        //TC:O(n)
+        //                                             //SC: O(n) Stack space
+        // List<Integer> ans=new ArrayList<>();
+        // Stack<TreeNode> st=new Stack<>();
+        // while(true)
+        // {
+        //     if(node != null)
+        //     {
+        //         st.push(node);
+        //         node=node.left;
+        //     }
+        //     else
+        //     {
+        //         if(st.isEmpty())
+        //             break;
 
-                node=st.pop();
-                ans.add(node.val);
-                node=node.right;
+        //         node=st.pop();
+        //         ans.add(node.val);
+        //         node=node.right;
+        //     }
+        // }
+        // return ans;
+
+
+        List<Integer> ans = new ArrayList<>();
+        Stack<TreeNode> st = new Stack<>();
+        TreeNode curr = root;
+
+        while (curr != null || !st.isEmpty()) {
+
+            // 1. Go as far left as possible
+            while (curr != null) {
+                st.push(curr);
+                curr = curr.left;
             }
+
+            // 2. Process the node
+            curr = st.pop();
+            ans.add(curr.val);
+
+            // 3. Move to the right subtree
+            curr = curr.right;
         }
         return ans;
     }
