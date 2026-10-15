@@ -23,8 +23,11 @@ class Solution {
         else if(q==null)
             return false;
         
-        if(p.val != q.val)
-            return false;
+        // if(p.val != q.val)
+        //     return false;
+
+        // if(p==null || q==null)
+        //     return p==q;
         
         return (p.val==q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)); 
     }
