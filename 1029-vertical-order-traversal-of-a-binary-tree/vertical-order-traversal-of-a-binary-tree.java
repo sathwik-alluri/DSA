@@ -98,27 +98,37 @@ class Solution {
             int vertical=curr.vertical;
             int level=curr.level;
 
-            if(tm.containsKey(vertical))   //If vertical exists
-            {
-                if(tm.get(vertical).containsKey(level))
-                    tm.get(vertical).get(level).add(val);
-                else
-                {
-                    PriorityQueue<Integer> pq=new PriorityQueue<>();
-                    pq.add(val);
-                    tm.get(vertical).put(level, pq);
-                }
-            }
-            else     //If vertical not exists - Then we need to inser vertical and also the level Treemap entry
-            {
-                PriorityQueue<Integer> pq=new PriorityQueue<>();
-                pq.add(val);
+            // if(tm.containsKey(vertical))   //If vertical exists
+            // {
+            //     if(tm.get(vertical).containsKey(level))
+            //         tm.get(vertical).get(level).add(val);
+            //     else
+            //     {
+            //         PriorityQueue<Integer> pq=new PriorityQueue<>();
+            //         pq.add(val);
+            //         tm.get(vertical).put(level, pq);
+            //     }
+            // }
+            // else     //If vertical not exists - Then we need to inser vertical and also the level Treemap entry
+            // {
+            //     PriorityQueue<Integer> pq=new PriorityQueue<>();
+            //     pq.add(val);
 
-                TreeMap<Integer, PriorityQueue<Integer>> t=new TreeMap<>();
-                t.put(level, pq);
+            //     TreeMap<Integer, PriorityQueue<Integer>> t=new TreeMap<>();
+            //     t.put(level, pq);
     
-                tm.put(vertical, t);
+            //     tm.put(vertical, t);
+            // }
+
+            if(!tm.containsKey(vertical)) 
+            {
+                tm.put(vertical, new TreeMap<>());
             }
+            if(!tm.get(vertical).containsKey(level))
+            {
+                tm.get(vertical).put(level, new PriorityQueue<>());
+            }
+            tm.get(vertical).get(level).add(val);
 
             if(no.left!=null)
                 q.add(new Pair(no.left, vertical-1, level+1));
