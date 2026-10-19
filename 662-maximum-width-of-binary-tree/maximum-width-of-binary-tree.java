@@ -25,7 +25,7 @@ class Pair
     }
 }
 class Solution {
-    public int widthOfBinaryTree(TreeNode root) 
+    public int widthOfBinaryTree(TreeNode root)  //TC:O(n) and SC:O(n)
     {
         Queue<Pair> q=new LinkedList<>();
         int width=0;
