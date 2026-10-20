@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    public int countNodes(TreeNode root) 
+    public int countNodes(TreeNode root)    //TC : O(logn) * O(logn) == O(logn ^2) -- We are traversing the height of tree will is logn and for each of that node we will becalculating height which is again logn
     {
         if(root==null)
             return 0;
@@ -23,7 +23,7 @@ class Solution {
         int rh=rightHeight(root);
 
         if(lh==rh)
-            return (int)Math.pow(2, lh + 1) - 1;
+            return (int)Math.pow(2, lh + 1) - 1;    //Why lh+1 - We need to calculate the levels rather than height. Including the root node we have lh+1 nodes. lh will be calculated based on edges, but w ewanted based on nodes.
         else
             return 1 + countNodes(root.left) + countNodes(root.right);
     }
