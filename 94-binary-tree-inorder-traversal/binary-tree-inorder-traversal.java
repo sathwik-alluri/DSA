@@ -44,24 +44,57 @@ class Solution {
         // return ans;
 
 
+        // List<Integer> ans = new ArrayList<>();
+        // Stack<TreeNode> st = new Stack<>();
+        // TreeNode curr = root;
+
+        // while (curr != null || !st.isEmpty()) {
+
+        //     // 1. Go as far left as possible
+        //     while (curr != null) {
+        //         st.push(curr);
+        //         curr = curr.left;
+        //     }
+
+        //     // 2. Process the node
+        //     curr = st.pop();
+        //     ans.add(curr.val);
+
+        //     // 3. Move to the right subtree
+        //     curr = curr.right;
+        // }
+        // return ans;
+
+
+        TreeNode curr=root;
         List<Integer> ans = new ArrayList<>();
-        Stack<TreeNode> st = new Stack<>();
-        TreeNode curr = root;
-
-        while (curr != null || !st.isEmpty()) {
-
-            // 1. Go as far left as possible
-            while (curr != null) {
-                st.push(curr);
-                curr = curr.left;
+        while(curr!=null)
+        {
+            if(curr.left == null)
+            {
+                ans.add(curr.val);
+                curr=curr.right;
             }
-
-            // 2. Process the node
-            curr = st.pop();
-            ans.add(curr.val);
-
-            // 3. Move to the right subtree
-            curr = curr.right;
+            else
+            {
+                TreeNode temp=curr.left;
+                while(temp.right!=null && temp.right!=curr)
+                {
+                    temp=temp.right;
+                }
+                
+                if(temp.right == null)
+                {
+                    temp.right=curr;
+                    curr=curr.left;
+                }
+                else
+                {
+                    temp.right=null;
+                    ans.add(curr.val);
+                    curr=curr.right;
+                }
+            }
         }
         return ans;
     }
