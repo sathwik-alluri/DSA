@@ -55,7 +55,7 @@ public class Codec {
             }
 
             i=i+1;
-            if(i < values.length && !values[i].equals("#"))
+            if(!values[i].equals("#"))
             {
                 TreeNode right=new TreeNode(Integer.parseInt(values[i]));
                 curr.right=right;
