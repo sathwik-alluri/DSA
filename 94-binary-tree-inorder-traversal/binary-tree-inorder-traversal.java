@@ -20,31 +20,9 @@ class Solution {
     //    inOrder(root, ans); 
     //    return ans;
 
-        // TreeNode node=root;                        //TC:O(n)
+
+        // List<Integer> ans = new ArrayList<>();      //TC:O(n)
         //                                             //SC: O(n) Stack space
-        // List<Integer> ans=new ArrayList<>();
-        // Stack<TreeNode> st=new Stack<>();
-        // while(true)
-        // {
-        //     if(node != null)
-        //     {
-        //         st.push(node);
-        //         node=node.left;
-        //     }
-        //     else
-        //     {
-        //         if(st.isEmpty())
-        //             break;
-
-        //         node=st.pop();
-        //         ans.add(node.val);
-        //         node=node.right;
-        //     }
-        // }
-        // return ans;
-
-
-        // List<Integer> ans = new ArrayList<>();
         // Stack<TreeNode> st = new Stack<>();
         // TreeNode curr = root;
 
@@ -67,7 +45,7 @@ class Solution {
 
 
         TreeNode curr=root;
-        List<Integer> ans = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();       //TC:O(n) and SC:O(1)
         while(curr!=null)
         {
             if(curr.left == null)
