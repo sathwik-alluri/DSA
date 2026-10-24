@@ -44,6 +44,7 @@ class Solution {
             TreeNode currNode=curr.node;
             int currState=curr.state;
 
+            //“I'm visiting this node for the first time. Record it in preorder, remember to return for inorder, and then go to the left child.”
             if(currState == 1)
             {
                 preOrder.add(currNode.val);
@@ -86,7 +87,6 @@ The stack entry (1, state) remembers where we stopped.
 
 
         // List<Integer> ans = new ArrayList<>();
-
         // if (root == null)
         //     return ans;
 
