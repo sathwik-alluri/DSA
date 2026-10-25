@@ -14,7 +14,9 @@
  * }
  */
 class Solution {
-    public TreeNode bstFromPreorder(int[] preorder) 
+    public TreeNode bstFromPreorder(int[] preorder)    //TC:O(3n) - In worst case We are visiting every node thrice. One from root to node, Once from left child back to root, and once from right child back to root.
+    //=== O(n)
+    //SC:O(1)
     {
         int[] A=new int[1];
         return build(preorder, Integer.MAX_VALUE, A);
