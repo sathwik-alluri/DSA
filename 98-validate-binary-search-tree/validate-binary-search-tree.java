@@ -17,7 +17,7 @@ class Solution
 {
     public boolean isValidBST(TreeNode root) 
     {
-        // Stack<TreeNode> st = new Stack<>();    //This invidual node check will fail for certail examples like [5,4,6,null,null,3,7] Expected Output - False
+        // Stack<TreeNode> st = new Stack<>();    //This invidual node check will fail for certain examples like [5,4,6,null,null,3,7] Expected Output - False
         // TreeNode curr = root;
         // while (curr != null || !st.isEmpty()) 
         // {
@@ -37,6 +37,9 @@ class Solution
         // }
         // return true;
 
+
+
+        //We cant use above method. We need to use range to compare the values of the value.
         return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);   //TC:O(n) and SC:O(1) othre than aux stack space
     }
     public boolean helper(TreeNode root, long minRange, long maxRange) 
