@@ -37,7 +37,7 @@ class Solution
         // }
         // return true;
 
-        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);   //TC:O(n) and SC:O(1) othre than aux stack space
     }
     public boolean helper(TreeNode root, long minRange, long maxRange) 
     {
