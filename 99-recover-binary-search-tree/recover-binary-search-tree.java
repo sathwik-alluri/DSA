@@ -53,7 +53,7 @@ class Solution
             first.val=second.val;
             second.val=t;
         }
-        else //if(first!=null && middle!=null)
+        else //else if(first!=null && middle!=null)
         {
             int t=first.val;
             first.val=middle.val;
