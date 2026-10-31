@@ -23,8 +23,8 @@ class Solution {
             if(sum <= goal)
             {
                 c+=(r-l+1);
-                r=r+1;
             }
+             r=r+1;
         }
         return c;
     }
