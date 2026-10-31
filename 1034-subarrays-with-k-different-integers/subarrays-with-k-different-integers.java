@@ -25,8 +25,8 @@ class Solution
             if(hm.size() <= k)
             {
                 c+=(r-l+1);
-                r++;
             }
+             r++;
         }
         return c;
     }
