@@ -5,7 +5,7 @@ class Solution {
         int l=0;
         int r=n-1;
         int ind=n;
-        for(int i=0;i<n;i++)
+        while(l<=r)
         {
             int m=(l+r)/2;
             if(nums[m] >= target)
