@@ -9,6 +9,9 @@ class Pair
     }
 }
 
+
+//8 Directions valid Code --- https://www.geeksforgeeks.org/problems/find-the-number-of-islands/1
+
 class Solution {
     public int numIslands(char[][] grid) 
     {
@@ -47,7 +50,7 @@ class Solution {
                int row=curr.row;
                int col=curr.col;
 
-               int delrow[] = {-1, 0, 1, 0};
+               int delrow[] = {-1, 0, 1, 0};   //Used when only 4 directions were valid. Not 8
                int delcol[] = {0, 1, 0, -1};
                for(int i = 0; i < 4; i++)
                 {
